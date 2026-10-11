@@ -605,7 +605,6 @@ async function save() {
     if (!r.ok || !j.ok) throw new Error(j.error || 'HTTP ' + r.status);
     undo = []; syncUndo();
     toast('Бот отправил вам изменённую сетку ✅');
-    setTimeout(() => { try { tg.close(); } catch (e) {} }, 900);
   } catch (err) {
     toast('Не получилось отправить: ' + (err.message || err), true, 6000);
   } finally { btn.disabled = false; }
